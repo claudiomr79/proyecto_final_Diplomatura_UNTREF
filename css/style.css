@@ -84,7 +84,7 @@ p {
     margin: 10px;
     color: white;
 }
-#btn_view_more{
+.btn{
     background-color: #de8108;
     border: 1px solid #452905;
     color: white;

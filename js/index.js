@@ -1,3 +1,5 @@
+import { showDetail } from '../js/detail.js';
+
 let data = fetch('https://fakestoreapi.com/products')
     .then(res => res.json())
     .then(productos => {
@@ -11,7 +13,7 @@ let data = fetch('https://fakestoreapi.com/products')
                         <div class="card-body">
                              <h5 class="card-title">${producto.title}</h5>
                              <p class="card-text">${producto.description}</p>
-                             <button id="btn_view_more">Ver más</button>
+                             <button class="btn" id="btn_view_more_${producto.id}"><a href="../pages/detail.html">Ver mas</a></button>
                         </div>
                     </div>
                     `
@@ -20,4 +22,14 @@ let data = fetch('https://fakestoreapi.com/products')
         document.body.appendChild(listado);
     })
     .catch(err => console.log(err));
+
+document.body.addEventListener('click', (e) => {
+    if (e.target.id.includes('btn_view_more_')) {
+        let id = e.target.id.split('_')[3];
+        showDetail(id);
+    }
+});
+
+
+
 
