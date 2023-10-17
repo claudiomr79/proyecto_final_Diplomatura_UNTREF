@@ -31,7 +31,7 @@ h1  {
     text-align: center;
     margin: 20px;
 }
-p {
+#desc{
     width: 280px;
     display: -webkit-box; 
     -webkit-box-orient: vertical; 
@@ -48,7 +48,7 @@ p {
 }
 
 .card {
-    background-color: cadetblue;
+    background-color: rgba(75, 127, 129, 0.288);
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
     margin: 10px;
