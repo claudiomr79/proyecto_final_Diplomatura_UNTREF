@@ -2,17 +2,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: rgba(0, 0, 255, 0.468);
 }
 p{
     font-size: 20px;
     font-weight: bold;
     margin: 10px;
-    color: rgba(234, 21, 25, 0.726);
 }
 .card{
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .card-img-top{
     width: 100%;
@@ -21,10 +23,8 @@ p{
     padding: 5px;
 }
 #detail{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 60vw;
+    margin: auto;
 }
 #description{
     text-align: justify;
@@ -34,6 +34,8 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
+    background-color: chartreuse;
 }
 .card-detail{
     display: flex;

@@ -1,21 +1,24 @@
 class Producto {
-    constructor(id, title, description, price, category, image) {
+    constructor(id, title, description, price, category, image, cuantity) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.price = price;
         this.category = category;
         this.image = image;
+        this.cuantity = cuantity;
     }
 }
 
-var cantidad = (JSON.parse(localStorage.getItem('producto'))).cantidad;
-console.log(cantidad);
+let cuantity = (JSON.parse(localStorage.getItem('producto'))).cuantity;
+//console.log(cuantity);
+
 const productoElegido = JSON.parse(localStorage.getItem('producto'));
 //console.log(productoElegido + "estoy en detail");
 
 //console.log(productoElegido);
-let detalleProducto = new Producto(productoElegido.id, productoElegido.title, productoElegido.description, productoElegido.price, productoElegido.category, productoElegido.image);
+let detalleProducto = new Producto(productoElegido.id, productoElegido.title, productoElegido.description, productoElegido.price, productoElegido.category, productoElegido.image, productoElegido.cuantity);
+let cantidad = detalleProducto.cuantity;      
 
 let mostrarDetalle = (detalleProducto) => {
     const detail = document.getElementById('detail');
@@ -32,7 +35,7 @@ let mostrarDetalle = (detalleProducto) => {
                 </div>
                 <div class="card-cuantity">
                     <button class="btn" id="-">-</button>
-                    <p>${ cantidad }</p>
+                    <p>${ cuantity }</p>
                     <button class="btn" id="+">+</button>
                 </div>
                 <button class="btn" id="btn_back">Volver</button>
@@ -42,11 +45,36 @@ let mostrarDetalle = (detalleProducto) => {
         `;
     detail.innerHTML = html;
     document.body.appendChild(detail);
-
-
 }
+let mostrarCarrito = () => {
+    let cart= document.getElementById('cart-value');
+    let carrito = JSON.parse(localStorage.getItem('carrito'));
+    let html = '';
+    cart.innerHTML = html;
+    html += `
+        <p>${carrito.length}</p>
+        `;
+    cart.innerHTML = html;
+    document.body.appendChild(cart);
+    
+};
 
 document.body.addEventListener('click', (e) => {    
+    if (e.target.id.includes('-')) {
+        let cuantity = document.querySelector('.card-cuantity p');
+        if (cuantity.innerHTML > 1) {
+            cuantity.innerHTML--;
+            cantidad--;
+        }
+    }
+
+    if (e.target.id.includes('+')) {
+        let cuantity = document.querySelector('.card-cuantity p');
+        if (cuantity.innerHTML < 10) {
+            cuantity.innerHTML++;
+            cantidad++;
+        }
+    }
     if (e.target.id.includes('btn_back')) {
         window.location.href = '../index.html';
     }
@@ -57,9 +85,9 @@ document.body.addEventListener('click', (e) => {
         let carrito = JSON.parse(localStorage.getItem('carrito'));
         let productoEnCarrito = carrito.find(producto => producto.id == id);
         if (productoEnCarrito) {
-            productoEnCarrito.cantidad += cantidad;
+            productoEnCarrito.cuantity += cantidad;
         } else {
-            producto.cantidad = cantidad;
+            producto.cuantity = cantidad;
             carrito.push(producto);
             console.log(carrito);
         }
@@ -69,25 +97,5 @@ document.body.addEventListener('click', (e) => {
     }
 });
 
-document.body.addEventListener('click', (e) => {
-    if (e.target.id.includes('-')) {
-        let cantidad = document.querySelector('.card-cuantity p');
-        if (cantidad.innerHTML > 1) {
-            cantidad.innerHTML--;
-            cantidad--;
-        }
-    }
-});
-
-document.body.addEventListener('click', (e) => {
-    if (e.target.id.includes('+')) {
-        let cantidad = document.querySelector('.card-cuantity p');
-        if (cantidad.innerHTML < 10) {
-            cantidad.innerHTML++;
-            cantidad++;
-        }
-    }
-
-});
-
 mostrarDetalle(detalleProducto);
+mostrarCarrito();

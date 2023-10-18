@@ -1,11 +1,11 @@
 
-
-function getProducto(id) {
+//detalle de producto
+function productDetail(id) {
     let data = fetch(`https://fakestoreapi.com/products/${id}`)
         .then(res => res.json())
         .then(producto => {
             //console.log(producto);
-            producto.cantidad = 10;
+            producto.cuantity = 10;
             localStorage.setItem('producto', JSON.stringify(producto));
             //ir a pagina detail.html
             window.location.href = './pages/detail.html';
@@ -13,9 +13,8 @@ function getProducto(id) {
         .catch(err => console.log(err));
         
 }
-
-
-let data = fetch('https://fakestoreapi.com/products')
+//listado de productos
+    fetch('https://fakestoreapi.com/products')
     .then(res => res.json())
     .then(productos => {
         let listado = document.getElementById('product-list');
@@ -42,7 +41,7 @@ document.body.addEventListener('click', (e) => {
     
     if (e.target.id.includes('btn_view_more_')) {
         let id = e.target.id.split('_')[3];
-        getProducto(id);
+        productDetail(id);
     }
 });
 
