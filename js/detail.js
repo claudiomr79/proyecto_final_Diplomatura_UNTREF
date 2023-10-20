@@ -44,7 +44,7 @@ let mostrarDetalle = (detalleProducto) => {
         </div>
         `;
     detail.innerHTML = html;
-    document.body.appendChild(detail);
+    document.appendChild(detail);
 }
 let mostrarCarrito = () => {
     let cart= document.getElementById('cart-value');
@@ -55,11 +55,11 @@ let mostrarCarrito = () => {
         <p>${carrito.length}</p>
         `;
     cart.innerHTML = html;
-    document.body.appendChild(cart);
+    document.appendChild(cart);
     
 };
 
-document.body.addEventListener('click', (e) => {    
+document.addEventListener('click', (e) => {    
     if (e.target.id.includes('-')) {
         let cuantity = document.querySelector('.card-cuantity p');
         if (cuantity.innerHTML > 1) {

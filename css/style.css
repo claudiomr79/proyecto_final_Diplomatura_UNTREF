@@ -1,14 +1,36 @@
+:root{
+    --mantis-50: #f6faf3;
+    --mantis-100: #e9f5e3;
+    --mantis-200: #d3eac8;
+    --mantis-300: #afd89d;
+    --mantis-400: #82bd69;
+    --mantis-500: #61a146;
+    --mantis-600: #4c8435;
+    --mantis-700: #3d692c;
+    --mantis-800: #345427;
+    --mantis-900: #2b4522;
+    --mantis-950: #13250e;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
+#logo{
+    width: 50px;
+    margin-right: 10px;
+    margin-bottom: 0px;
+}
+#logo:hover{
+    transform: scale(1.04);
+}
 header ul {
     display: flex;
     justify-content: space-between;
-    background: rgb(2, 0, 36);
-    padding: 20px;
+    align-items: center;
+    background: var(--mantis-950);
+    padding: 10px;
     
 }
 ul li {
@@ -19,38 +41,32 @@ ul li {
     font-weight: bold;
     cursor: pointer;
 }
+
+
 a:link, a:visited, a:active {
     text-decoration:none;
-    color: white;
+    color: var(--mantis-50);
 }
 body{
-    background: linear-gradient(90deg, rgba(124, 124, 125, 0.338) 35%, rgba(77, 98, 102, 0.447) 100%);
-
+    background: var(--mantis-50);
 }
 h1  {
+    color: var(--mantis-700);
     text-align: center;
     margin: 20px;
 }
-#desc{
-    width: 280px;
-    display: -webkit-box; 
-    -webkit-box-orient: vertical; 
-    -webkit-line-clamp: 3; 
-    overflow: hidden; 
-    text-overflow: ellipsis;
-  }
+
 #product-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    margin: 10%;
+    gap: 50px;
 }
 
 .card {
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(45, 44, 44, 0.6);
-    margin: 10px;
+    box-shadow: 0 2px 4px var(--mantis-950);
     width: 300px;
     height: 600px;
     display: flex;
@@ -80,17 +96,36 @@ h1  {
 .card-text {
     font-size: 16px;
     margin: 10px;
-    color: white;
+    color: var(--mantis-700);
 }
 .btn{
     width: 100%;
-    background-color: black;
-    border: 3px solid #26b026;
-    color: white;
+    background-color: var(--mantis-500);
+    border: 3px solid var(--mantis-900);
+    color: var(--mantis-50);
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
+}
+.btn:hover{
+    background-color: var(--mantis-700);
+    color: var(--mantis-50);
+    transform: scale(1.04);
+}
+footer p{
+    text-align: center;
+    margin: 20px;
+}
+@media screen and (max-width: 768px){
+    #product-list{
+        margin: 10%;
+    }
+    .card{
+        width: 90vw;
+        height: 90vh;
+    }
+    
 }

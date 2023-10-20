@@ -25,19 +25,18 @@ function productDetail(id) {
                     <div class="card">
                         <img src="${producto.image}" class="card-img-top" alt="...">
                         <div class="card-body">
-                             <h5 class="card-title">${producto.title}</h5>
-                             <p id="desc" class="card-text">${producto.description}</p>
+                             <h5 class="card-title">${producto.title.lenght < 20 ? producto.title : (producto.title.slice(0,20) + "...")}</h5>
                              <button class="btn" id="btn_view_more_${producto.id}">Ver mas</button>
                         </div>
                     </div>
                     `
             listado.innerHTML = html;
         });
-        document.body.appendChild(listado);
+        document.appendChild(listado);
     })
     .catch(err => console.log(err));
 
-document.body.addEventListener('click', (e) => {
+document.addEventListener('click', (e) => {
     
     if (e.target.id.includes('btn_view_more_')) {
         let id = e.target.id.split('_')[3];
