@@ -25,6 +25,9 @@
 #logo:hover{
     transform: scale(1.04);
 }
+header{
+    height: 100px;
+}
 header ul {
     display: flex;
     justify-content: space-between;
