@@ -43,6 +43,7 @@ ul li {
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
+    color: var(--mantis-50);
 }
 
 
@@ -121,6 +122,8 @@ h1  {
 footer p{
     text-align: center;
     margin: 20px;
+    color: var(--mantis-800);
+    font-weight: bold;
 }
 @media screen and (max-width: 768px){
     #product-list{

@@ -4,10 +4,8 @@ function productDetail(id) {
     let data = fetch(`https://fakestoreapi.com/products/${id}`)
         .then(res => res.json())
         .then(producto => {
-            //console.log(producto);
-            producto.cuantity = 10;
+            producto.cuantity = 1;
             localStorage.setItem('producto', JSON.stringify(producto));
-            //ir a pagina detail.html
             window.location.href = './pages/detail.html';
         })
         .catch(err => console.log(err));

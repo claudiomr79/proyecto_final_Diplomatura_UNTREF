@@ -16,7 +16,7 @@ const mostrarCarrito = function () {
             <h3>${producto.title.lenght < 25 ? producto.title : (producto.title.slice(0, 25) + "...")}</h3>
             <p>Precio: $${producto.price}</p>
             <p>Cantidad: ${producto.cuantity}</p>
-           <strong><span class="remove" id="remove_${producto.id}">❌</span></strong> 
+           <button><strong><span class="remove" id="remove_${producto.id}">Eliminar❌</span></strong></button>
         </div>
     `;
         cart.appendChild(div);
@@ -42,7 +42,12 @@ const totalCompra = function (){
         total += producto.price * producto.cuantity;
     }
     const totalCompra = document.getElementById('total');
-    totalCompra.innerHTML = `<h2>Total: $${total.toFixed(2)}</h2>`;
+    if (total=== 0){
+        totalCompra.innerHTML= `<h2>Carrito Vacio</h2>
+                                <button class=" btn-chico btn"><a href="../index.html">Seguir comprando</a></button>`;
+    } else {
+        totalCompra.innerHTML = `<h2>Total: $${total.toFixed(2)}</h2>`;
+    }
 }
 document.addEventListener('DOMContentLoaded', () => {
     mostrarCarrito();
