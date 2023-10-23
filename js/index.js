@@ -47,11 +47,27 @@ const crearCarrito = () => {
     let carrito = [];
     localStorage.setItem('carrito', JSON.stringify(carrito));
 };
+const mostrarCantidadCarrito = () => {
+    const carrito = JSON.parse(localStorage.getItem('carrito'));
+    let total = 0;
+    for (const producto of carrito) {
+        total += producto.cuantity;
+    }
+    const cart = document.getElementById('cart-value');
+    let html = '';
+    cart.innerHTML = html;
+    html += `
+        <span>${total}</span>
+        `;
+    cart.innerHTML = html;
+    document.appendChild(cart);
+};
 
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('carrito') == null) {
         crearCarrito();
     }
+    mostrarCantidadCarrito();
 });    
 
 

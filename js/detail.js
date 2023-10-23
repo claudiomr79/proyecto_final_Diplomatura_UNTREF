@@ -44,19 +44,24 @@ let mostrarDetalle = (detalleProducto) => {
         </div>
         `;
     detail.innerHTML = html;
+    mostrarCantidadCarrito();
     document.appendChild(detail);
 }
-let mostrarCarrito = () => {
-    let cart= document.getElementById('cart-value');
-    let carrito = JSON.parse(localStorage.getItem('carrito'));
+
+const mostrarCantidadCarrito = () => {
+    const carrito = JSON.parse(localStorage.getItem('carrito'));
+    let total = 0;
+    for (const producto of carrito) {
+        total += producto.cuantity;
+    }
+    const cart = document.getElementById('cart-value');
     let html = '';
     cart.innerHTML = html;
     html += `
-        <p>${carrito.length}</p>
+        <span>${total}</span>
         `;
     cart.innerHTML = html;
     document.appendChild(cart);
-    
 };
 
 document.addEventListener('click', (e) => {    
@@ -96,6 +101,6 @@ document.addEventListener('click', (e) => {
         window.location.href = '../index.html';
     }
 });
-
+document.addEventListener('DOMContentLoaded', () => {
 mostrarDetalle(detalleProducto);
-mostrarCarrito();
+});
