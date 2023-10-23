@@ -10,14 +10,13 @@
     width: 10vw;
 }
 .producto{
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 25px;
 }
-.cart-image{
-    border: 1px solid var(--mantis-900);
-}
+
 .cart-info{
     width: 60vw;
     display: flex;

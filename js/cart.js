@@ -2,11 +2,8 @@ const mostrarCarrito = function () {
     const carrito = JSON.parse(localStorage.getItem('carrito'));
     const cart = document.getElementById('cart');
 
-
-    let color = 1;
     for (const producto of carrito) {
         const div = document.createElement('div');
-        div.style.backgroundColor = (color % 2 === 0) ? "#e9f5e3" : '#f6faf3';
         div.classList.add('producto');
         div.innerHTML = `
         <div class="cart-image">
@@ -19,8 +16,14 @@ const mostrarCarrito = function () {
            <strong><span class="remove" id="remove_${producto.id}">❌</span></strong>
         </div>
     `;
+        const div2 = document.createElement('div');
+        const hr = document.createElement('hr');
+        hr.style.width = '100vw';
+        hr.style.margin = '15px';
+        hr.style.border = '1px solid #13250e';
+        div2.appendChild(hr);
         cart.appendChild(div);
-        color++;
+        cart.appendChild(div2);
     }
 }
 const mostrarCantidadCarrito = () => {

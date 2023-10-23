@@ -63,12 +63,13 @@ footer p{
     text-align: center;
     margin: 20px;
 }
-@media screen and (max-width: 768px){
+@media only screen and (min-width: 320px) and (max-width: 600px){
     #detail{
         margin: 20px auto;
     }
     .card{
-        width: 90vw;
+        width: 85vw;
+        max-height: 70%;
     }
     
 }
