@@ -38,7 +38,6 @@ header ul {
 }
 ul li {
     list-style: none;
-    display: inline-block;
     margin-right: 20px;
     font-size: 20px;
     font-weight: bold;
@@ -46,8 +45,9 @@ ul li {
     color: var(--mantis-50);
 }
 header input{
-    width: 80%;
-    height: 30px;
+    width: 300px;
+    height: 35px;
+    text-align: center;
     border-radius: 15px;
     border: 2px solid var(--mantis-700);
     padding: 5px;
@@ -110,7 +110,8 @@ h1  {
     flex-direction: column;
     justify-content: space-evenly;
 }
-
+.card:hover{
+    transform: scale(1.04);}
 .card-img-top {
     display: block;
     width: 100%;
@@ -165,6 +166,9 @@ footer p{
     .card{
         width: 85vw;
         max-height: 70vh;
+    }
+    header input{
+        width: 75%;
     }
     
 }

@@ -66,9 +66,13 @@ const totalCompra = function () {
     } else {
         totalCompra.innerHTML = `
         <h2>Total: $${total.toFixed(2)}</h2>
+        <div>
         <button class="btn-finalizar btn">Finalizar Compra</button>
+        <button class="btn-vaciar btn"><a href="../index.html">Vaciar Carrito</a></button>
+        </div>
         `;
         finalizarCompra();
+        vaciarCarrito();
     }
 }
 const finalizarCompra = () => {
@@ -81,7 +85,15 @@ const finalizarCompra = () => {
         window.location.href = '../index.html';
     });
 };
-
+const vaciarCarrito = () => {
+    const carrito = JSON.parse(localStorage.getItem('carrito'));
+    const btnVaciar = document.querySelector('.btn-vaciar');
+    btnVaciar.addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.clear();
+        window.location.href = '../index.html';
+    });
+};
 document.addEventListener('DOMContentLoaded', () => {
     mostrarCarrito();
     totalCompra();
