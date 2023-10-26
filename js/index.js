@@ -60,14 +60,36 @@ const mostrarCantidadCarrito = () => {
         <span>${total}</span>
         `;
     cart.innerHTML = html;
-    document.appendChild(cart);
+   document.appendChild(cart);
 };
+const buscarProducto = () => {
+    const search = document.getElementById('buscador');
+    search.addEventListener('keyup', (e) => {
+        const texto = e.target.value.toLowerCase();
+        const productos = document.querySelectorAll('h5');
+        console.log(productos);
+        for (const producto of productos) {
+            const titulo = producto.innerText.toLowerCase();
+            const card = producto.parentElement.parentElement;
+            if (titulo.indexOf(texto) === -1) {
+                card.style.display = 'none';
+            }else{
+                card.style.display = '';
+            }
+        }
+    });
+};
+const search = document.getElementById('buscador');
+    search.addEventListener('keyup', (e) => {
+        buscarProducto();
+    });
 
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('carrito') == null) {
         crearCarrito();
     }
     mostrarCantidadCarrito();
+   
 });    
 
 

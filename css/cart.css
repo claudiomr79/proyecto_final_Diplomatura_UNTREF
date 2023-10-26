@@ -35,7 +35,7 @@ h3, p {
 }
 #total {
     color: var(--mantis-700);
-    margin: 50px;
+    margin: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,6 +47,13 @@ h3, p {
 .btn-chico{
     max-width: 30vw;
     margin: 35vh;
+}
+.btn-finalizar{
+    max-width: 30vw;
+    margin: 10vh;
+    background-color: var(--mantis-700);
+    color: var(--mantis-50);
+    border: 2px solid var(--mantis-700);
 }
 @media screen and (max-width: 768px) {
     .cart-image{

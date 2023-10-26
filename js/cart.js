@@ -51,22 +51,37 @@ document.addEventListener('click', (e) => {
     if (e.target.id.includes('remove_')) {
         let id = e.target.id.split('_')[1];
         removeProduct(id);
-    }    
+    }
 });
-const totalCompra = function (){
+const totalCompra = function () {
     const carrito = JSON.parse(localStorage.getItem('carrito'));
     let total = 0;
     for (const producto of carrito) {
         total += producto.price * producto.cuantity;
     }
     const totalCompra = document.getElementById('total');
-    if (total=== 0){
-        totalCompra.innerHTML= `<h2>Carrito Vacio</h2>
+    if (total === 0) {
+        totalCompra.innerHTML = `<h2>Carrito Vacio</h2>
                                 <button class=" btn-chico btn"><a href="../index.html">Seguir comprando</a></button>`;
     } else {
-        totalCompra.innerHTML = `<h2>Total: $${total.toFixed(2)}</h2>`;
+        totalCompra.innerHTML = `
+        <h2>Total: $${total.toFixed(2)}</h2>
+        <button class="btn-finalizar btn">Finalizar Compra</button>
+        `;
+        finalizarCompra();
     }
 }
+const finalizarCompra = () => {
+    const carrito = JSON.parse(localStorage.getItem('carrito'));
+    const btnFinalizar = document.querySelector('.btn-finalizar');
+    btnFinalizar.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('Gracias por su compra');
+        localStorage.clear();
+        window.location.href = '../index.html';
+    });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     mostrarCarrito();
     totalCompra();
