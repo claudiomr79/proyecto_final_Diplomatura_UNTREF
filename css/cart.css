@@ -40,12 +40,20 @@ h3, p {
     justify-content: space-evenly;
     align-items: center;
 }
+#total  .btn-chico{
+    color: var(--mantis-700);
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
 #total h2{
     text-align: center;
+    margin-bottom: 50px;
 }
 .btn-chico{
     max-width: 30vw;
     margin: 35vh;
+   
 }
 .btn-finalizar, .btn-vaciar{
     max-width: 30vw;

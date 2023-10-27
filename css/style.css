@@ -110,7 +110,7 @@ h1  {
     flex-direction: column;
     justify-content: space-evenly;
 }
-.card:hover{
+#product-list .card:hover{
     transform: scale(1.04);}
 .card-img-top {
     display: block;
